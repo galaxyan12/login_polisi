@@ -17,6 +17,10 @@ Kalau ada perubahan di pubspec.yaml maka jalankan
 flutter pub get
 ```
 
+## Hasil APK
+Hasil apk dapat diunduh pada
+[Link ini](https://drive.google.com/drive/folders/1MSTvzokPNkgYzA7KmNJ4VRoGNFvVOJUp?usp=sharing)
+(Last build: 2020-12-05 22:33)
 
 ### Note
 * Jika kontributor ingin merubah kode harap buat branch baru sendiri, jangan bekerja di branch main.
