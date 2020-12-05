@@ -7,3 +7,4 @@
 <app dir>/android/app/src/main/AndroidManifest.xml
 ```
 
+Cek lagi pubspec.yaml
