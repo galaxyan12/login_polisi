@@ -19,5 +19,5 @@ flutter pub get
 
 
 ### Note
-- Jika kontributor ingin merubah kode harap buat branch baru sendiri, jangan bekerja di branch main.
-- Troubleshooting harap buka issue tidak hanya melewati chat karena khawatir lupa dan tidak terlacak
+* Jika kontributor ingin merubah kode harap buat branch baru sendiri, jangan bekerja di branch main.
+* Troubleshooting harap buka issue, jangan hanya melewati chat karena khawatir lupa dan tidak terlacak
