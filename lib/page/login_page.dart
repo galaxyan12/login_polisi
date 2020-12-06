@@ -41,7 +41,9 @@ class _LoginPageState extends State<LoginPage> {
       Map<String, dynamic> json = jsonDecode(response.body);
       _saveToken(json['token']);
       debugPrint(json['token']);
-      Navigator.pushNamed(ctx, '/beranda');
+      // Navigator.pushNamed(ctx, '/beranda');
+      Navigator.of(ctx)
+          .pushNamedAndRemoveUntil('/beranda', (Route<dynamic> route) => false);
 
       return Login.fromJson(jsonDecode(response.body));
     } else if (response.statusCode == 422) {

@@ -5,13 +5,34 @@ import './page/psikologi_list.dart';
 import './page/watpres_list.dart';
 import './page/beranda.dart';
 import './page/login_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   // This widget is the root of your application.
+  String _detoken = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadToken();
+  }
+
+  _loadToken() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _detoken = (prefs.getString('token') ?? '');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,7 +41,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.orange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: LoginPage(),
+      home: (_detoken != '') ? Beranda() : LoginPage(),
       // initialRoute: '/',
       routes: {
         // '/': (context) => Beranda(),
