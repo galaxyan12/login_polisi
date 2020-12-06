@@ -39,18 +39,11 @@ class _LoginPageState extends State<LoginPage> {
 
     if (response.statusCode == 200) {
       Map<String, dynamic> json = jsonDecode(response.body);
-
-      // if (json['message']) {
-      // Find the Scaffold in the widget tree and use
-      // Scaffold.of(ctx).showSnackBar(snackBar);
-      // print('ada pesan');
-      // } else {
       _saveToken(json['token']);
       debugPrint(json['token']);
       Navigator.pushNamed(ctx, '/beranda');
-      // debugPrint('berhasil login ' + json['message']);
+
       return Login.fromJson(jsonDecode(response.body));
-      // }
     } else if (response.statusCode == 422) {
       Map<String, dynamic> json = jsonDecode(response.body);
       final snackBar = SnackBar(
@@ -68,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  //Loading counter value on start
+  // mengambil token
   _loadToken() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -76,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
     });
   }
 
-  //Incrementing counter after click
+  //save token ke lokal
   _saveToken(tokenValue) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -105,7 +98,6 @@ class _LoginPageState extends State<LoginPage> {
       controller: _nrpController,
       keyboardType: TextInputType.number,
       autofocus: false,
-      // initialValue: 'alucard@gmail.com',
       decoration: InputDecoration(
         filled: true,
         fillColor: Colors.white,
@@ -124,7 +116,6 @@ class _LoginPageState extends State<LoginPage> {
       },
       controller: _passwordController,
       autofocus: false,
-      // initialValue: 'some password',
       obscureText: true,
       decoration: InputDecoration(
         filled: true,
@@ -138,7 +129,6 @@ class _LoginPageState extends State<LoginPage> {
     final loginButton = RaisedButton(
       onPressed: () {
         if (_formKey.currentState.validate()) {
-          // Navigator.pushNamed(context, '/beranda');
           _futureLogin =
               doLogin(_nrpController.text, _passwordController.text, context);
         }
