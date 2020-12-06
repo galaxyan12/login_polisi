@@ -104,7 +104,7 @@ class _BerandaPageState extends State<BerandaPage> {
 
     debugPrint('Dapat lat: $lat long: $long token: $mtoken');
     final http.Response response = await http.post(
-      'http://sdmpolda.kawansaye.net/api/panic',
+      'https://sdmpolda.kawansaye.net/api/panic',
       headers: <String, String>{
         // 'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ' + mtoken,
