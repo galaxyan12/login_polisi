@@ -4,7 +4,7 @@ import 'dart:convert';
 
 class PsikologiList extends StatelessWidget {
   final String apiUrl =
-      "http://sdmpolda.kawansaye.net/api/pages/category/binkar";
+      "https://sdmpolda.kawansaye.net/api/pages/category/binkar";
   Future<List<dynamic>> fetchDalpers() async {
     // var result = await http.get(apiUrl);
     // String token =

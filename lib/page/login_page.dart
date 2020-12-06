@@ -12,6 +12,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   // ignore: unused_field
   String _token = '';
   final _formKey = GlobalKey<FormState>();
@@ -26,9 +28,9 @@ class _LoginPageState extends State<LoginPage> {
     _loadToken();
   }
 
-  Future<Login> doLogin(String nrp, String password) async {
+  Future<Login> doLogin(String nrp, String password, BuildContext ctx) async {
     final http.Response response = await http.post(
-      'http://sdmpolda.kawansaye.net/api/login',
+      'https://sdmpolda.kawansaye.net/api/login',
       body: {
         'nrp': nrp,
         'password': password,
@@ -37,9 +39,30 @@ class _LoginPageState extends State<LoginPage> {
 
     if (response.statusCode == 200) {
       Map<String, dynamic> json = jsonDecode(response.body);
+
+      // if (json['message']) {
+      // Find the Scaffold in the widget tree and use
+      // Scaffold.of(ctx).showSnackBar(snackBar);
+      // print('ada pesan');
+      // } else {
       _saveToken(json['token']);
       debugPrint(json['token']);
+      Navigator.pushNamed(ctx, '/beranda');
+      // debugPrint('berhasil login ' + json['message']);
       return Login.fromJson(jsonDecode(response.body));
+      // }
+    } else if (response.statusCode == 422) {
+      Map<String, dynamic> json = jsonDecode(response.body);
+      final snackBar = SnackBar(
+        content: Text(json['message']),
+        action: SnackBarAction(
+          label: 'OK',
+          onPressed: () {
+            // Some code to undo the change.
+          },
+        ),
+      );
+      _scaffoldKey.currentState.showSnackBar(snackBar);
     } else {
       throw Exception('Failed to login.');
     }
@@ -115,8 +138,9 @@ class _LoginPageState extends State<LoginPage> {
     final loginButton = RaisedButton(
       onPressed: () {
         if (_formKey.currentState.validate()) {
-          Navigator.pushNamed(context, '/beranda');
-          _futureLogin = doLogin(_nrpController.text, _passwordController.text);
+          // Navigator.pushNamed(context, '/beranda');
+          _futureLogin =
+              doLogin(_nrpController.text, _passwordController.text, context);
         }
       },
       child: Text('Masuk'),
@@ -135,6 +159,7 @@ class _LoginPageState extends State<LoginPage> {
     );
 
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Colors.white,
       body: Form(
         key: _formKey,

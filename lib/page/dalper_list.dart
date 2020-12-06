@@ -4,7 +4,7 @@ import 'dart:convert';
 
 class DalperList extends StatelessWidget {
   final String apiUrl =
-      "http://sdmpolda.kawansaye.net/api/pages/category/dalpers";
+      "https://sdmpolda.kawansaye.net/api/pages/category/dalpers";
   Future<List<dynamic>> fetchDalpers() async {
     // var result = await http.get(apiUrl);
     // String token =
