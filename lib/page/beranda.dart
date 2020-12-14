@@ -57,7 +57,194 @@ class _BerandaState extends State<Beranda> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    _loadToken();
+  }
+
+  //Loading counter value on start
+  _loadToken() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return (prefs.getString('token') ?? '');
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final tombolProfil = Container(
+      padding: EdgeInsets.all(15),
+      color: Colors.blueAccent,
+      child: FlatButton(
+        onPressed: () async {
+          Navigator.pushNamed(context, '/dalper');
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(bottom: 10),
+              child: Icon(
+                Icons.account_circle,
+                color: Colors.grey[200],
+                size: 100,
+                semanticLabel: 'Text to announce in accessibility modes',
+              ),
+            ),
+            Text(
+              'Profil',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 12),
+            ),
+          ],
+        ),
+      ),
+    );
+    final tombolDalper = Container(
+      padding: EdgeInsets.all(15),
+      color: Colors.blueGrey[100],
+      child: FlatButton(
+        onPressed: () async {
+          Navigator.pushNamed(context, '/dalper');
+          SharedPreferences prefs = await SharedPreferences.getInstance();
+          var _detoken = (prefs.getString('token') ?? '');
+          debugPrint('Hasil token' + _detoken);
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(bottom: 10),
+              child: Image(
+                width: 90,
+                // color: Colors.red[600],
+                image: AssetImage('assets/images/002-megaphone.png'),
+              ),
+            ),
+            Text(
+              'Dalper',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 12),
+            ),
+          ],
+        ),
+      ),
+    );
+    final tombolBinkar = Container(
+      padding: EdgeInsets.all(15),
+      color: Colors.purple[400],
+      child: FlatButton(
+        onPressed: () async {
+          final prefs = await SharedPreferences.getInstance();
+          final counter = prefs.getInt('counter') ?? 0;
+          Navigator.pushNamed(context, '/binkar');
+          debugPrint(counter.toString());
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(bottom: 10),
+              child: Image(
+                width: 90,
+                // color: Colors.red[600],
+                image: AssetImage('assets/images/003-policeman.png'),
+              ),
+            ),
+            Text(
+              'Binkar',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 12),
+            ),
+          ],
+        ),
+      ),
+    );
+    final tombolPsikologi = Container(
+      padding: EdgeInsets.all(10),
+      width: 50,
+      color: Colors.red[400],
+      child: FlatButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/psikologi');
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(bottom: 10),
+              child: Image(
+                width: 90,
+                // color: Colors.red[600],
+                image: AssetImage('assets/images/005-smartphone.png'),
+              ),
+            ),
+            Text(
+              'Psikologi',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 12),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    final tombolWatpres = Container(
+      padding: EdgeInsets.all(15),
+      width: 50,
+      color: Colors.greenAccent,
+      child: FlatButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/watpres');
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(bottom: 10),
+              child: Image(
+                width: 90,
+                // color: Colors.red[600],
+                image: AssetImage('assets/images/004-newspaper.png'),
+              ),
+            ),
+            Text(
+              'Watpres',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 12),
+            ),
+          ],
+        ),
+      ),
+    );
+
+    final tombolYankes = Container(
+      padding: EdgeInsets.all(15),
+      color: Colors.blueGrey[900],
+      child: FlatButton(
+        onPressed: () async {
+          Navigator.pushNamed(context, '/dalper');
+        },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(bottom: 10),
+              child: Icon(
+                Icons.hotel,
+                color: Colors.grey[200],
+                size: 100,
+                semanticLabel: 'Text to announce in accessibility modes',
+              ),
+            ),
+            Text(
+              'Yankes',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 12, color: Colors.white),
+            ),
+          ],
+        ),
+      ),
+    );
+
     return Scaffold(
       key: _scaffoldKey,
       appBar: PreferredSize(
@@ -85,7 +272,17 @@ class _BerandaState extends State<Beranda> {
           ),
         ),
       ),
-      body: BerandaPage(),
+      body: GridView.count(
+        crossAxisCount: 2,
+        children: [
+          tombolProfil,
+          tombolDalper,
+          tombolBinkar,
+          tombolWatpres,
+          tombolPsikologi,
+          tombolYankes,
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -109,277 +306,5 @@ class _BerandaState extends State<Beranda> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
-  }
-}
-
-class BerandaPage extends StatefulWidget {
-  @override
-  _BerandaPageState createState() => _BerandaPageState();
-}
-
-class _BerandaPageState extends State<BerandaPage> {
-  // String _token = '';
-
-  @override
-  void initState() {
-    super.initState();
-    _loadToken();
-  }
-
-  //Loading counter value on start
-  _loadToken() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return (prefs.getString('token') ?? '');
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final tombolProfil = Expanded(
-      child: Container(
-        padding: EdgeInsets.all(15),
-        color: Colors.blueAccent,
-        child: FlatButton(
-          onPressed: () async {
-            Navigator.pushNamed(context, '/dalper');
-          },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(bottom: 10),
-                child: Icon(
-                  Icons.account_circle,
-                  color: Colors.grey[200],
-                  size: 100,
-                  semanticLabel: 'Text to announce in accessibility modes',
-                ),
-              ),
-              Text(
-                'Profil',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 12),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-    final tombolDalper = Expanded(
-      child: Container(
-        padding: EdgeInsets.all(15),
-        color: Colors.blueGrey[100],
-        child: FlatButton(
-          onPressed: () async {
-            Navigator.pushNamed(context, '/dalper');
-            SharedPreferences prefs = await SharedPreferences.getInstance();
-            var _detoken = (prefs.getString('token') ?? '');
-            debugPrint('Hasil token' + _detoken);
-          },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(bottom: 10),
-                child: Image(
-                  width: 90,
-                  // color: Colors.red[600],
-                  image: AssetImage('assets/images/002-megaphone.png'),
-                ),
-              ),
-              Text(
-                'Dalper',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 12),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-    final tombolBinkar = Expanded(
-      child: Container(
-        padding: EdgeInsets.all(15),
-        color: Colors.purple[400],
-        child: FlatButton(
-          onPressed: () async {
-            final prefs = await SharedPreferences.getInstance();
-            final counter = prefs.getInt('counter') ?? 0;
-            Navigator.pushNamed(context, '/binkar');
-            debugPrint(counter.toString());
-          },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(bottom: 10),
-                child: Image(
-                  width: 90,
-                  // color: Colors.red[600],
-                  image: AssetImage('assets/images/003-policeman.png'),
-                ),
-              ),
-              Text(
-                'Binkar',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 12),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-    final tombolPsikologi = Expanded(
-      flex: 3,
-      child: Container(
-        padding: EdgeInsets.all(10),
-        width: 50,
-        color: Colors.red[400],
-        child: FlatButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/psikologi');
-          },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(bottom: 10),
-                child: Image(
-                  width: 90,
-                  // color: Colors.red[600],
-                  image: AssetImage('assets/images/005-smartphone.png'),
-                ),
-              ),
-              Text(
-                'Psikologi',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 12),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-
-    final tombolWatpres = Expanded(
-      flex: 3,
-      child: Container(
-        padding: EdgeInsets.all(15),
-        width: 50,
-        color: Colors.greenAccent,
-        child: FlatButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/watpres');
-          },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(bottom: 10),
-                child: Image(
-                  width: 90,
-                  // color: Colors.red[600],
-                  image: AssetImage('assets/images/004-newspaper.png'),
-                ),
-              ),
-              Text(
-                'Watpres',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 12),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-
-    final tombolYankes = Expanded(
-      child: Container(
-        padding: EdgeInsets.all(15),
-        color: Colors.blueGrey[900],
-        child: FlatButton(
-          onPressed: () async {
-            Navigator.pushNamed(context, '/dalper');
-          },
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(bottom: 10),
-                child: Icon(
-                  Icons.hotel,
-                  color: Colors.grey[200],
-                  size: 100,
-                  semanticLabel: 'Text to announce in accessibility modes',
-                ),
-              ),
-              Text(
-                'Yankes',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 12, color: Colors.white),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-    return GridView.count(
-      crossAxisCount: 2,
-      children: [
-        tombolProfil,
-        tombolDalper,
-        tombolBinkar,
-        tombolWatpres,
-        tombolPsikologi,
-        tombolYankes,
-      ],
-    );
-    // kode asal
-    // Column(
-    //   children: [
-    //     Expanded(
-    //       flex: 1,
-    //       child: Container(
-    //         // width: 150,
-    //         color: Colors.white,
-    //         child: Image.asset('assets/images/banner.png'),
-    //       ),
-    //     ),
-    //     Expanded(
-    //       flex: 2,
-    //       child: Container(
-    //         child: Row(
-    //           mainAxisAlignment: MainAxisAlignment.center,
-    //           crossAxisAlignment: CrossAxisAlignment.stretch,
-    //           children: [
-    //             kotakLogo,
-    //             Expanded(
-    //               child: Container(
-    //                 child: Column(
-    //                   crossAxisAlignment: CrossAxisAlignment.stretch,
-    //                   children: [
-    //                     tombolDalper,
-    //                     tombolBinkar,
-    //                   ],
-    //                 ),
-    //               ),
-    //             ),
-    //           ],
-    //         ),
-    //       ),
-    //     ),
-    //     Expanded(
-    //       flex: 1,
-    //       child: Container(
-    //         child: Row(
-    //           children: [
-    //             tombolPsikologi,
-    //             tombolWatpres,
-    //             tombolPanic,
-    //           ],
-    //         ),
-    //       ),
-    //     ),
-    //   ],
-    // );
   }
 }
