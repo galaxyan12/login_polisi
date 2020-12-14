@@ -20,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
 
   final TextEditingController _nrpController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  Future<Login> _futureLogin;
+  // Future<Login> _futureLogin;
 
   @override
   void initState() {
@@ -28,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
     _loadToken();
   }
 
-  Future<Login> doLogin(String nrp, String password, BuildContext ctx) async {
+  Future<void> doLogin(String nrp, String password, BuildContext ctx) async {
     final http.Response response = await http.post(
       'https://sdmpolda.kawansaye.net/api/login',
       body: {
@@ -131,8 +131,7 @@ class _LoginPageState extends State<LoginPage> {
     final loginButton = RaisedButton(
       onPressed: () {
         if (_formKey.currentState.validate()) {
-          _futureLogin =
-              doLogin(_nrpController.text, _passwordController.text, context);
+          doLogin(_nrpController.text, _passwordController.text, context);
         }
       },
       child: Text('Masuk'),
