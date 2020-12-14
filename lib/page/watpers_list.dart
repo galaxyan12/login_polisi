@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class PsikologiList extends StatelessWidget {
+class WatpersList extends StatelessWidget {
   final String apiUrl =
-      "https://sdmpolda.kawansaye.net/api/pages/category/psikologi";
+      "https://sdmpolda.kawansaye.net/api/pages/category/watpers";
   Future<List<dynamic>> fetchDalpers() async {
     // var result = await http.get(apiUrl);
-    // String token =
-    //     "ad17eee95360a48643c8dcbcf9ff01f77f5c3320910f238429e5a690fdc1f549";
+    // String token = "ad17eee95360a48643c8dcbcf9ff01f77f5c3320910f238429e5a690fdc1f549";
     final response = await http.get(apiUrl, headers: {
       'Content-Type': 'application/json',
       // 'Accept': 'application/json',
@@ -27,7 +26,7 @@ class PsikologiList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Psikologi'),
+        title: Text('Watpers'),
       ),
       body: Container(
         child: FutureBuilder<List<dynamic>>(

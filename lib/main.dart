@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import './page/binkar_list.dart';
 import './page/dalper_list.dart';
 import './page/psikologi_list.dart';
-import './page/watpres_list.dart';
+import './page/watpers_list.dart';
+import './page/yankes_list.dart';
 import './page/beranda.dart';
 import './page/login_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -50,7 +51,8 @@ class _MyAppState extends State<MyApp> {
         '/dalper': (context) => DalperList(),
         '/binkar': (context) => BinkarList(),
         '/psikologi': (context) => PsikologiList(),
-        '/watpres': (context) => WatpresList(),
+        '/watpres': (context) => WatpersList(),
+        '/yankes': (context) => YankesList(),
       },
     );
   }

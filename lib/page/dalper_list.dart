@@ -27,7 +27,7 @@ class DalperList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Dalpers List'),
+        title: Text('Dalper'),
       ),
       body: Container(
         child: FutureBuilder<List<dynamic>>(

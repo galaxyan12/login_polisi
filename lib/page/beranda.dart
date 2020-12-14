@@ -230,7 +230,7 @@ class _BerandaState extends State<Beranda> {
       color: Colors.blueGrey[900],
       child: FlatButton(
         onPressed: () async {
-          Navigator.pushNamed(context, '/dalper');
+          Navigator.pushNamed(context, '/yankes');
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

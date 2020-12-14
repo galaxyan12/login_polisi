@@ -26,7 +26,7 @@ class BinkarList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Binkar List'),
+        title: Text('Binkar'),
       ),
       body: Container(
         child: FutureBuilder<List<dynamic>>(

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class PsikologiList extends StatelessWidget {
+class YankesList extends StatelessWidget {
   final String apiUrl =
-      "https://sdmpolda.kawansaye.net/api/pages/category/psikologi";
+      "https://sdmpolda.kawansaye.net/api/pages/category/yankes";
   Future<List<dynamic>> fetchDalpers() async {
     // var result = await http.get(apiUrl);
     // String token =
@@ -27,7 +27,7 @@ class PsikologiList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Psikologi'),
+        title: Text('Pelayanan Kesehatan'),
       ),
       body: Container(
         child: FutureBuilder<List<dynamic>>(
