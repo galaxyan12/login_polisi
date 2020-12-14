@@ -60,6 +60,7 @@ class _LoginPageState extends State<LoginPage> {
 
       return Login.fromJson(jsonDecode(response.body));
     } else if (response.statusCode == 422) {
+      Navigator.of(ctx).pop();
       Map<String, dynamic> json = jsonDecode(response.body);
       final snackBar = SnackBar(
         content: Text(json['message']),
