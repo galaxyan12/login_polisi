@@ -16,8 +16,16 @@ class _BerandaState extends State<Beranda> {
   var judul = 'Polda Kalbar';
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  Future<void> createDangerReport() async {
-    // var hasilInternal;
+  Future<void> createDangerReport(BuildContext ctx) async {
+    // buildShowDialog(ctx);
+    showDialog(
+        context: ctx,
+        barrierDismissible: false,
+        builder: (BuildContext ctxy) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        });
     Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
     var lat = position.latitude.toString();
@@ -41,6 +49,7 @@ class _BerandaState extends State<Beranda> {
     );
 
     if (response.statusCode == 200) {
+      Navigator.of(ctx).pop();
       final snackBar = SnackBar(
         content: Text('Laporan Anda Telah Terkirim'),
         action: SnackBarAction(
@@ -300,7 +309,7 @@ class _BerandaState extends State<Beranda> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          createDangerReport();
+          createDangerReport(context);
         },
         child: Icon(Icons.local_fire_department),
       ),

@@ -28,7 +28,19 @@ class _LoginPageState extends State<LoginPage> {
     _loadToken();
   }
 
+  buildShowDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        });
+  }
+
   Future<void> doLogin(String nrp, String password, BuildContext ctx) async {
+    buildShowDialog(ctx);
     final http.Response response = await http.post(
       'https://sdmpolda.kawansaye.net/api/login',
       body: {
@@ -42,6 +54,7 @@ class _LoginPageState extends State<LoginPage> {
       _saveToken(json['token']);
       debugPrint(json['token']);
       // Navigator.pushNamed(ctx, '/beranda');
+      Navigator.of(ctx).pop();
       Navigator.of(ctx)
           .pushNamedAndRemoveUntil('/beranda', (Route<dynamic> route) => false);
 
