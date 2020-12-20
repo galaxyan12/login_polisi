@@ -20,7 +20,7 @@ flutter pub get
 ## Hasil APK
 Hasil apk dapat diunduh pada
 [Link ini](https://drive.google.com/drive/folders/194rPNcHcwAE7uJj2Yk6DFZnpbS-iPQJg?usp=sharing)
-(Last build: 2020-12-14 10:53)
+(Last build: 2020-12-21 02:04)
 
 ### Note
 * Jika kontributor ingin merubah kode harap buat branch baru sendiri, jangan bekerja di branch main.
