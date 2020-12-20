@@ -16,7 +16,10 @@ class DalperList extends StatelessWidget {
     });
     // print('Token : ${token}');
     print(response);
-    return json.decode(response.body)['data'];
+    var hasil = new List();
+    hasil.add(json.decode(response.body)['data']);
+    hasil.add(json.decode(response.body)['desc']);
+    return hasil;
   }
 
   String _judul(dynamic dalper) {
@@ -34,35 +37,61 @@ class DalperList extends StatelessWidget {
           future: fetchDalpers(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.hasData) {
-              return ListView.builder(
-                  padding: EdgeInsets.all(8),
-                  itemCount: snapshot.data.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Card(
-                      color: Colors.white,
-                      child: Column(
-                        children: <Widget>[
-                          new Container(
-                              decoration:
-                                  new BoxDecoration(color: Colors.lightGreen),
-                              child: new ListTile(
-                                // leading: CircleAvatar(
-                                //   radius: 30,
-                                //   backgroundImage: NetworkImage(snapshot.data[index]['picture']['large'])),
-                                title: Text(_judul(snapshot.data[index])),
-                                // subtitle: Text(_location(snapshot.data[index])),
-                                // trailing: Text(_age(snapshot.data[index])),
-                              ))
-                        ],
-                      ),
-                    );
-                  });
+              return ListView(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Text(snapshot.data[1].toString()),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: ListView.builder(
+                        primary: false,
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        padding: EdgeInsets.all(8),
+                        itemCount: snapshot.data[0].length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Card(
+                            color: Colors.white,
+                            child: Column(
+                              children: <Widget>[
+                                new Container(
+                                    decoration: new BoxDecoration(
+                                        color: Colors.lightGreen),
+                                    child: new ListTile(
+                                      // leading: CircleAvatar(
+                                      //   radius: 30,
+                                      //   backgroundImage: NetworkImage(snapshot.data[index]['picture']['large'])),
+                                      title:
+                                          Text(_judul(snapshot.data[0][index])),
+                                      subtitle:
+                                          Text(_judul(snapshot.data[0][index])),
+                                      // trailing: Text(_age(snapshot.data[index])),
+                                    ))
+                              ],
+                            ),
+                          );
+                        }),
+                  )
+                ],
+              );
             } else {
               return Center(child: CircularProgressIndicator());
             }
           },
         ),
       ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.all(20),
+        child: FloatingActionButton.extended(
+          onPressed: () {
+            print('masuk');
+          },
+          label: Text('Hubungi Kami'),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
