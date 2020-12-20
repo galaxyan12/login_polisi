@@ -12,7 +12,7 @@ flutter build apk --split-per-abi
 ```
 
 
-Kalau ada perubahan di pubspec.yaml maka jalankan
+Kalau ada perubahan di pubspec.yaml atau anda baru saja clone repository ini maka jalankan
 ```
 flutter pub get
 ```

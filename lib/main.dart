@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import './page/binkar_list.dart';
-import './page/dalper_list.dart';
-import './page/psikologi_list.dart';
-import './page/watpers_list.dart';
-import './page/yankes_list.dart';
 import './page/beranda.dart';
+import './page/profil.dart';
 import './page/login_page.dart';
+import './utils/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -37,7 +34,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'LAPOR SDM',
+      title: Constants.appName,
       theme: ThemeData(
         primarySwatch: Colors.orange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -48,11 +45,7 @@ class _MyAppState extends State<MyApp> {
         // '/': (context) => Beranda(),
         '/beranda': (context) => Beranda(),
         '/login-page': (context) => LoginPage(),
-        '/dalper': (context) => DalperList(),
-        '/binkar': (context) => BinkarList(),
-        '/psikologi': (context) => PsikologiList(),
-        '/watpres': (context) => WatpersList(),
-        '/yankes': (context) => YankesList(),
+        '/profil': (context) => Profil(),
       },
     );
   }

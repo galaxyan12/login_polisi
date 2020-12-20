@@ -1,9 +1,10 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'general_list.dart';
+import '../utils/constants.dart';
 
 class Beranda extends StatefulWidget {
   Beranda({Key key}) : super(key: key);
@@ -36,7 +37,7 @@ class _BerandaState extends State<Beranda> {
 
     debugPrint('Dapat lat: $lat long: $long token: $mtoken');
     final http.Response response = await http.post(
-      'https://sdmpolda.kawansaye.net/api/panic',
+      Constants.apiUrl + 'panic',
       headers: <String, String>{
         // 'Content-Type': 'application/json; charset=UTF-8',
         'Authorization': 'Bearer ' + mtoken,
@@ -84,7 +85,7 @@ class _BerandaState extends State<Beranda> {
       color: Colors.blueAccent,
       child: FlatButton(
         onPressed: () async {
-          Navigator.pushNamed(context, '/dalper');
+          Navigator.pushNamed(context, '/profil');
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -112,7 +113,9 @@ class _BerandaState extends State<Beranda> {
       color: Colors.blueGrey[100],
       child: FlatButton(
         onPressed: () async {
-          Navigator.pushNamed(context, '/dalper');
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return GeneralList('dalpers');
+          }));
           SharedPreferences prefs = await SharedPreferences.getInstance();
           var _detoken = (prefs.getString('token') ?? '');
           debugPrint('Hasil token' + _detoken);
@@ -142,10 +145,9 @@ class _BerandaState extends State<Beranda> {
       color: Colors.purple[400],
       child: FlatButton(
         onPressed: () async {
-          final prefs = await SharedPreferences.getInstance();
-          final counter = prefs.getInt('counter') ?? 0;
-          Navigator.pushNamed(context, '/binkar');
-          debugPrint(counter.toString());
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return GeneralList('binkar');
+          }));
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -173,7 +175,9 @@ class _BerandaState extends State<Beranda> {
       color: Colors.red[400],
       child: FlatButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/psikologi');
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return GeneralList('psikologi');
+          }));
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -202,7 +206,9 @@ class _BerandaState extends State<Beranda> {
       color: Colors.greenAccent,
       child: FlatButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/watpres');
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return GeneralList('watpers');
+          }));
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -230,7 +236,9 @@ class _BerandaState extends State<Beranda> {
       color: Colors.blueGrey[900],
       child: FlatButton(
         onPressed: () async {
-          Navigator.pushNamed(context, '/yankes');
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return GeneralList('yankes');
+          }));
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
