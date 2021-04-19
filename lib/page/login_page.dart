@@ -171,8 +171,8 @@ class _LoginPageState extends State<LoginPage> {
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/bg.jpg"),
-              fit: BoxFit.cover,
+              image: AssetImage("assets/images/bg-login.jpg"),
+              fit: BoxFit.fill,
             ),
           ),
           child: Center(
@@ -180,12 +180,12 @@ class _LoginPageState extends State<LoginPage> {
               shrinkWrap: true,
               padding: EdgeInsets.only(left: 24.0, right: 24.0),
               children: <Widget>[
-                logo,
-                SizedBox(height: 48.0),
+                // logo,
+                SizedBox(height: 25.0),
                 nrpField,
-                SizedBox(height: 8.0),
+                SizedBox(height: 5.0),
                 password,
-                SizedBox(height: 24.0),
+                SizedBox(height: 15.0),
                 loginButton,
                 forgotLabel
               ],

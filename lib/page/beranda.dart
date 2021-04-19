@@ -91,14 +91,12 @@ class _BerandaState extends State<Beranda> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.only(bottom: 10),
-              child: Icon(
-                Icons.account_circle,
-                color: Colors.grey[200],
-                size: 100,
-                semanticLabel: 'Text to announce in accessibility modes',
-              ),
-            ),
+                padding: EdgeInsets.only(bottom: 10),
+                child: Image(
+                  width: 90,
+                  // color: Colors.red[600],
+                  image: AssetImage('assets/images/profil.png'),
+                )),
             Text(
               'Profil',
               textAlign: TextAlign.center,
@@ -128,7 +126,7 @@ class _BerandaState extends State<Beranda> {
               child: Image(
                 width: 90,
                 // color: Colors.red[600],
-                image: AssetImage('assets/images/002-megaphone.png'),
+                image: AssetImage('assets/images/dalpers.png'),
               ),
             ),
             Text(
@@ -157,7 +155,7 @@ class _BerandaState extends State<Beranda> {
               child: Image(
                 width: 90,
                 // color: Colors.red[600],
-                image: AssetImage('assets/images/003-policeman.png'),
+                image: AssetImage('assets/images/binkar.png'),
               ),
             ),
             Text(
@@ -187,7 +185,7 @@ class _BerandaState extends State<Beranda> {
               child: Image(
                 width: 90,
                 // color: Colors.red[600],
-                image: AssetImage('assets/images/005-smartphone.png'),
+                image: AssetImage('assets/images/psikologi.png'),
               ),
             ),
             Text(
@@ -218,7 +216,7 @@ class _BerandaState extends State<Beranda> {
               child: Image(
                 width: 90,
                 // color: Colors.red[600],
-                image: AssetImage('assets/images/004-newspaper.png'),
+                image: AssetImage('assets/images/watpers.png'),
               ),
             ),
             Text(
@@ -244,14 +242,12 @@ class _BerandaState extends State<Beranda> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.only(bottom: 10),
-              child: Icon(
-                Icons.hotel,
-                color: Colors.grey[200],
-                size: 100,
-                semanticLabel: 'Text to announce in accessibility modes',
-              ),
-            ),
+                padding: EdgeInsets.only(bottom: 10),
+                child: Image(
+                  width: 90,
+                  // color: Colors.red[600],
+                  image: AssetImage('assets/images/yankes.png'),
+                )),
             Text(
               'Yankes',
               textAlign: TextAlign.center,
