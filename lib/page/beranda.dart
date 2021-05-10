@@ -81,8 +81,8 @@ class _BerandaState extends State<Beranda> {
   @override
   Widget build(BuildContext context) {
     final tombolProfil = Container(
-      padding: EdgeInsets.all(15),
-      color: Colors.blueAccent,
+      padding: EdgeInsets.all(0),
+      color: Colors.blueAccent.withOpacity(0.0),
       child: FlatButton(
         onPressed: () async {
           Navigator.pushNamed(context, '/profil');
@@ -91,24 +91,24 @@ class _BerandaState extends State<Beranda> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-                padding: EdgeInsets.only(bottom: 10),
+                padding: EdgeInsets.only(bottom: 0),
                 child: Image(
-                  width: 90,
+                  width: 200,
                   // color: Colors.red[600],
                   image: AssetImage('assets/images/profil.png'),
                 )),
-            Text(
-              'Profil',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 12),
-            ),
+            // Text(
+            //   'Profil',
+            //   textAlign: TextAlign.center,
+            //   style: TextStyle(fontSize: 12),
+            // ),
           ],
         ),
       ),
     );
     final tombolDalper = Container(
-      padding: EdgeInsets.all(15),
-      color: Colors.blueGrey[100],
+      padding: EdgeInsets.all(0),
+      color: Colors.blueGrey.withOpacity(0.0),
       child: FlatButton(
         onPressed: () async {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -122,25 +122,25 @@ class _BerandaState extends State<Beranda> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.only(bottom: 10),
+              padding: EdgeInsets.only(bottom: 0),
               child: Image(
-                width: 90,
+                width: 200,
                 // color: Colors.red[600],
                 image: AssetImage('assets/images/dalpers.png'),
               ),
             ),
-            Text(
-              'Dalper',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 12),
-            ),
+            // Text(
+            //   'Dalper',
+            //   textAlign: TextAlign.center,
+            //   style: TextStyle(fontSize: 12),
+            // ),
           ],
         ),
       ),
     );
     final tombolBinkar = Container(
-      padding: EdgeInsets.all(15),
-      color: Colors.purple[400],
+      padding: EdgeInsets.all(0),
+      color: Colors.purple.withOpacity(0.0),
       child: FlatButton(
         onPressed: () async {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -151,26 +151,26 @@ class _BerandaState extends State<Beranda> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.only(bottom: 10),
+              padding: EdgeInsets.only(bottom: 0),
               child: Image(
-                width: 90,
+                width: 200,
                 // color: Colors.red[600],
                 image: AssetImage('assets/images/binkar.png'),
               ),
             ),
-            Text(
-              'Binkar',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 12),
-            ),
+            // Text(
+            //   'Binkar',
+            //   textAlign: TextAlign.center,
+            //   style: TextStyle(fontSize: 12),
+            // ),
           ],
         ),
       ),
     );
     final tombolPsikologi = Container(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(0),
       width: 50,
-      color: Colors.red[400],
+      color: Colors.red.withOpacity(0.0),
       child: FlatButton(
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -181,27 +181,26 @@ class _BerandaState extends State<Beranda> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.only(bottom: 10),
+              padding: EdgeInsets.only(bottom: 0),
               child: Image(
-                width: 90,
+                width: 200,
                 // color: Colors.red[600],
                 image: AssetImage('assets/images/psikologi.png'),
               ),
             ),
-            Text(
-              'Psikologi',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 12),
-            ),
+            // Text(
+            //   'Psikologi',
+            //   textAlign: TextAlign.center,
+            //   style: TextStyle(fontSize: 12),
+            // ),
           ],
         ),
       ),
     );
-
     final tombolWatpres = Container(
-      padding: EdgeInsets.all(15),
+      padding: EdgeInsets.all(0),
       width: 50,
-      color: Colors.greenAccent,
+      color: Colors.greenAccent.withOpacity(0.0),
       child: FlatButton(
         onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -212,26 +211,25 @@ class _BerandaState extends State<Beranda> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: EdgeInsets.only(bottom: 10),
+              padding: EdgeInsets.only(bottom: 0),
               child: Image(
-                width: 90,
+                width: 200,
                 // color: Colors.red[600],
                 image: AssetImage('assets/images/watpers.png'),
               ),
             ),
-            Text(
-              'Watpres',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 12),
-            ),
+            // Text(
+            //   'Watpres',
+            //   textAlign: TextAlign.center,
+            //   style: TextStyle(fontSize: 12),
+            // ),
           ],
         ),
       ),
     );
-
     final tombolYankes = Container(
-      padding: EdgeInsets.all(15),
-      color: Colors.blueGrey[900],
+      padding: EdgeInsets.all(0),
+      color: Colors.blueGrey.withOpacity(0.0),
       child: FlatButton(
         onPressed: () async {
           Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -242,17 +240,17 @@ class _BerandaState extends State<Beranda> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-                padding: EdgeInsets.only(bottom: 10),
+                padding: EdgeInsets.only(bottom: 0),
                 child: Image(
-                  width: 90,
+                  width: 200,
                   // color: Colors.red[600],
                   image: AssetImage('assets/images/yankes.png'),
                 )),
-            Text(
-              'Yankes',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 12, color: Colors.white),
-            ),
+            // Text(
+            //   'Yankes',
+            //   textAlign: TextAlign.center,
+            //   style: TextStyle(fontSize: 12, color: Colors.white),
+            // ),
           ],
         ),
       ),
@@ -260,62 +258,35 @@ class _BerandaState extends State<Beranda> {
 
     return Scaffold(
       key: _scaffoldKey,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(90),
-        child: Padding(
-          padding: EdgeInsets.only(top: 20),
-          child: AppBar(
-            automaticallyImplyLeading: false,
-            centerTitle: true,
-            backgroundColor: Colors.white,
-            title: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image(
-                  height: 60,
-                  image: AssetImage('assets/images/logoapp.png'),
-                ),
-                // Text(
-                //   judul,
-                //   style: TextStyle(color: Colors.black),
-                // ),
-              ],
-            ),
-          ),
+      body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+          image: AssetImage("assets/images/bg-menu.jpg"),
+          fit: BoxFit.cover,
+        )),
+        padding: EdgeInsets.only(top: 45.0),
+        child: GridView.count(
+          crossAxisCount: 2,
+          children: [
+            tombolProfil,
+            tombolDalper,
+            tombolBinkar,
+            tombolWatpres,
+            tombolPsikologi,
+            tombolYankes,
+          ],
         ),
       ),
-      body: GridView.count(
-        crossAxisCount: 2,
-        children: [
-          tombolProfil,
-          tombolDalper,
-          tombolBinkar,
-          tombolWatpres,
-          tombolPsikologi,
-          tombolYankes,
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Beranda',
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 25.0),
+        child: FloatingActionButton(
+          onPressed: () {
+            createDangerReport(context);
+          },
+          child: Image(
+            image: AssetImage('assets/images/sos.png'),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.logout),
-            label: 'Logout',
-          ),
-        ],
-        // currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
-        // onTap: _onItemTapped,
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          createDangerReport(context);
-        },
-        child: Icon(Icons.local_fire_department),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );

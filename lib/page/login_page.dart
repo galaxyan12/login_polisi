@@ -95,15 +95,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    // final logo = Hero(
-    //   tag: 'hero',
-    //   child: CircleAvatar(
-    //     backgroundColor: Colors.transparent,
-    //     radius: 48.0,
-    //     child: Image.asset('assets/images/logoapp.png'),
-    //   ),
-    // );
-
     final nrpField = TextFormField(
       validator: (value) {
         if (value.isEmpty) {
@@ -180,7 +171,6 @@ class _LoginPageState extends State<LoginPage> {
               shrinkWrap: true,
               padding: EdgeInsets.only(left: 24.0, right: 24.0),
               children: <Widget>[
-                // logo,
                 SizedBox(height: 25.0),
                 nrpField,
                 SizedBox(height: 5.0),
